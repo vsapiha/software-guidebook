@@ -1,0 +1,21 @@
+:numbered!:
+== Acknowledgement
+
+[discrete]
+=== Arc42
+
+
+[discrete]
+=== C4 Model
+
+We acknowledge that this document uses material from the C4 model created by Simon Brown. +
+https://c4model.com/[https://c4model.com/]
+
+    Licensed under a Creative Commons Attribution-ShareAlike 4.0 International License
+    
+== Version information
+
+[discrete]
+=== Asciidoctor
+
+Asciidoctor version {asciidoctor-version} is used to generated this document.

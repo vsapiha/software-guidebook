@@ -1,0 +1,81 @@
+!define ICONURL https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/v2.1.0
+!includeurl ICONURL/common.puml
+!includeurl ICONURL/devicons/angular.puml
+!includeurl ICONURL/devicons/database.puml
+!includeurl ICONURL/font-awesome-5/key.puml
+!includeurl ICONURL/font-awesome-5/java.puml
+!includeurl ICONURL/material/person.puml
+!includeurl ICONURL/material/sim_card.puml
+
+!define SPRITESURL https://raw.githubusercontent.com/rabelenda/cicon-plantuml-sprites/v1.0/sprites
+!includeurl SPRITESURL/elasticsearch.puml
+!includeurl SPRITESURL/kafka.puml
+
+skinparam shadowing false
+'skinparam monochrome true
+
+'skinparam RectangleBackgroundColor #b6fbba
+skinparam RectangleBackgroundColor #fff
+skinparam RectangleBackgroundColor<<Foreseen>> #ddd
+skinparam RectangleFontName<<Foreseen>> Courier
+
+skinparam componentArrowColor #191919
+
+skinparam sequenceParticipantBorderColor #191919
+skinparam sequenceLifeLineBorderColor #191919
+skinparam sequenceBoxLineColor #191919
+skinparam sequenceParticipantBackgroundColor #fff
+skinparam sequenceLineColor #191919
+
+skinparam actorBorderColor #191919
+skinparam actorBackgroundColor white
+
+skinparam databaseBorderColor #191919
+skinparam databaseBackgroundColor white
+
+skinparam defaultTextAlignment center
+
+hide stereotype
+
+center footer Generated on %date%
+
+!definelong box(pLabel,pAlias,pType)
+rectangle pAlias <<pType>> [
+    **pLabel**
+    <size:11>[pType]</size>
+]
+!enddefinelong
+
+!definelong box_desc(pLabel,pAlias,pType,pDesc)
+rectangle pAlias <<pType>> [
+    **pLabel**
+    <size:11>[pType]</size>
+
+    pDesc
+]
+!enddefinelong
+
+!definelong box_sprite(pLabel,pAlias,pType,pSprite)
+rectangle pAlias <<pType>> [
+    **pLabel**
+    <size:11>[pType]</size>
+    <pSprite>
+]
+!enddefinelong
+
+!definelong box_sprite(pLabel,pAlias,pType,pSprite,pDesc)
+rectangle pAlias <<pType>> [
+    **pLabel**
+    <size:11>[pType]</size>
+    <pSprite>
+
+    pDesc
+]
+!enddefinelong
+
+!definelong box_sprite(pLabel,pAlias,pSprite)
+rectangle pAlias <<pType>> [
+    **pLabel**
+    <pSprite>
+]
+!enddefinelong

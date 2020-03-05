@@ -1,0 +1,60 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "org.asciidoctor:asciidoctor-gradle-plugin:$pluginsAsciiDoctor"
+    }
+}
+
+apply plugin: 'org.asciidoctor.convert'
+
+description = 'Software guidebook'
+
+repositories {
+    mavenLocal()
+    jcenter()
+}
+
+dependencies {
+    asciidoctor "org.asciidoctor:asciidoctorj-diagram:$asciiDoctorJDiagramVersion"
+    asciidoctor "org.asciidoctor:asciidoctorj-pdf:$asciiDoctorJPdfVersion"
+    asciidoctor "org.asciidoctor:asciidoctorj-epub3:$asciiDoctorJEpub3Version"
+
+    asciidoctor "net.sourceforge.plantuml:plantuml:$plantUmlVersion"
+    asciidoctor "org.jruby:jruby-complete:$jRubyVersion"
+}
+
+asciidoctorj {
+    version = project.asciiDoctorJVersion
+}
+
+task guidebook {
+    dependsOn 'asciidoctor'
+    description 'Creates Software Guidebook (alias for asciidoctor)'
+    group 'Documentation'
+}
+
+defaultTasks 'guidebook'
+
+asciidoctor {
+    dependsOn 'clean'
+
+    options doctype: 'book', ruby: 'erubis'
+
+    requires 'asciidoctor-diagram'
+    backends = [ 'html5', 'pdf' ] // 'epub3'
+
+    sources {
+        include 'index.adoc'
+    }
+
+    outputDir "${project.buildDir}/guidebook"
+
+    attributes(
+            imagesdir: './images'
+    )
+
+    logDocuments = true
+    separateOutputDirs = true
+}

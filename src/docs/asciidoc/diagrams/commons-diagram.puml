@@ -1,0 +1,59 @@
+@startuml(id=authenticated-user)
+!include layout-diagram.puml
+box_sprite(Authenticated User, AuthUser, sign-in with Token, $person)
+@enduml
+
+@startuml(id=operational-user)
+!include layout-diagram.puml
+box_sprite(Operational User, OperationalUser, sign-in with Token, $person)
+@enduml
+
+@startuml(id=kafka)
+!include layout-diagram.puml
+box_sprite(Kafka, Kafka, docker, $kafka)
+@enduml
+
+@startuml(id=elk)
+!include layout-diagram.puml
+box_sprite(ELK, ELK, docker, $elasticsearch)
+@enduml
+
+@startuml(id=web-application)
+!include layout-diagram.puml
+box_sprite(Web Application, WebApp, Angular, $angular, "Allows users to perform,\nview and manage\n device validations")
+@enduml
+
+@startuml(id=web-api)
+!include layout-diagram.puml
+box_sprite(Web API, WebAPI, Microservice, $java, "Exposes a REST API for\nthe Web Application\nto perform, view and manage\ndevice validations")
+@enduml
+
+@startuml(id=device-validator)
+!include layout-diagram.puml
+box_sprite(Device Validator, DeviceValidator, Microservice, $java, "Performs/orchestrates the long\nrunning validation process")
+@enduml
+
+@startuml(id=database)
+!include layout-diagram.puml
+box_sprite(Database, Database, tbd, $database, "Stores validations,\nstatuses, etc.")
+@enduml
+
+@startuml(id=keycloak-system)
+!include layout-diagram.puml
+box_sprite(KeyCloak, KeyCloak, external system, $key)
+@enduml
+
+@startuml(id=mconnect-system)
+!include layout-diagram.puml
+box_sprite(MConnect, MConnect, external system, $key)
+@enduml
+
+@startuml(id=idemea-system)
+!include layout-diagram.puml
+box_sprite(IDEMEA, IDEMEA, external system, $sim_card)
+@enduml
+
+@startuml(id=arm-system)
+!include layout-diagram.puml
+box_sprite(ARM, ARM, external system, $sim_card)
+@enduml

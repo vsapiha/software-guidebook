@@ -1,0 +1,30 @@
+@startuml
+title ... - System context
+
+!include layout-diagram.puml
+
+together {
+    !include commons-diagram.puml!authenticated-user
+    !include commons-diagram.puml!operational-user
+}
+
+box(eSim DV, Application, Software System)
+
+!include commons-diagram.puml!keycloak-system
+!include commons-diagram.puml!mconnect-system
+
+
+together {
+    !include commons-diagram.puml!idemea-system
+    !include commons-diagram.puml!arm-system
+}
+
+AuthUser --> Application : Validates\ndevices
+OperationalUser --> Application : Validates devices,\nmanages validations,\nmanages profiles
+
+Application -right-> KeyCloak : Get and validate\nuser tokens
+Application -left-> MConnect : Redirects users\nto the system
+Application --> IDEMEA
+Application --> ARM
+@enduml
+

@@ -1,31 +1,59 @@
-# software-guidebook
+# Docs-as-Code
 
-C4 Software Guidebook aka Docs-as-Code
+Docs-as-Code project demonstrates the use of Asciidoc to generate software documentation. Combining models from the following sources:
+
++ [Arc42](https://arc42.org/download)
++ [C4-model](https://c4model.com/)
++ Architecture Decision Records
+
+Generation of diagrams is supported using PlantUML.
 
 ## Getting Started
 
-Download links:
+### Libraries
 
-SSH clone URL: ssh://git@git.jetbrains.space/vsapiha/software-guidebook.git
++ **AsciidoctorJ** is the official library for running Asciidoctor on the JVM. Using AsciidoctorJ, you can convert AsciiDoc content or analyze the structure of a parsed AsciiDoc document from Java and other JVM languages.
 
-HTTPS clone URL: https://git.jetbrains.space/vsapiha/software-guidebook.git
+[AsciiDoctorJ](https://asciidoctor.org/docs/asciidoctorj/)
 
++ asciidoctor-gradle-plugin
 
++ asciidoctorj-diagram
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+Asciidoctor Diagram is a set of Asciidoctor extensions that enable you to add diagrams, which you describe using plain text, to your AsciiDoc document.
 
-## Prerequisites
+The extensions supports:
 
-What things you need to install the software and how to install them.
+- [GraphViz](https://graphviz.gitlab.io/_pages/doc/info/lang.html)
+- [PlantUML](http://plantuml.sourceforge.net/)
 
-```
-Examples
-```
++ asciidoctorj-pdf
 
-## Deployment
++ gradle 
 
-Add additional notes about how to deploy this on a production system.
++ Graphviz
 
-## Resources
+[Graphviz](http://www.graphviz.org/)
 
-Add links to external resources for this project, such as CI server, bug tracker, etc.
+### Prerequisites
+
++ Java installed
++ [Graphviz](https://graphviz.gitlab.io/) installed (needed to generate diagrams)
+
+## Running
+
+Execute the documentation generation by:
+`./gradlew asciidoctor`
+
+The generated documentation can be found at:
+
++ `/build/asciidoc/index.html` (HTML website)
++ `/build/asciidoc/index.pdf` (PDF document)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+
+## Acknowledgments
+
+* The documentation template is inspired by the ARC42 model/C4-Model and Architecture Decision Records.
